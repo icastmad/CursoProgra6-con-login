@@ -1,0 +1,40 @@
+﻿@page
+@model WebAplicacion.Pages.MarcaVehiculo.EditModel
+@{
+}
+<div id="AppEdit" class="container" data-entity="@JsonSerializer.Serialize(Model.Entity)" v-cloak>
+    
+    <div class="card">
+        <div class="card-header">
+            @(Model.id.HasValue ? "Actualizar": "Nuevo")
+        </div>
+        <div class="card-body">
+            <form id="FormEdit">
+
+                <input type="hidden" asp-for="Entity.MarcaVehiculoId" v-model="Entity.MarcaVehiculoId" />
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Descripcion" class="form-label">Descripcion</label>
+                    <input type="text" class="form-control" asp-for="Entity.Descripcion" v-model="Entity.Descripcion" maxlength="250" required>
+                </div>
+
+                <div class="form-group form-check form-switch">
+                    <input class="form-check-input" type="checkbox" asp-for="Entity.Estado" v-model="Entity.Estado" value="true">
+                    <label class="form-check-label" for="Entity.Estado">Estado</label>
+                </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <button type="button" @@click="Save" class="btn btn-outline-primary">
+                            @(Model.id.HasValue ? "Actualizar": "Agregar")
+                        </button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{ 
+    <script defer src="~/App/MarcaVehiculo/Edit.js"></script>
+}

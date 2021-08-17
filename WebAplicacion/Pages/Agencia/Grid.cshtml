@@ -1,0 +1,73 @@
+﻿@page
+@model WebAplicacion.Pages.GridModel
+@{
+}
+
+<br />
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+
+            Agencia
+
+
+        </div>
+        <div class="card-body">
+
+            <a class="btn btn-outline-primary" asp-page="Edit">
+                <i class='bx bxs-comment-add'></i>
+            </a>
+
+            <div class="row">
+
+                <div class="col-12"></div>
+                <table id="GridView" class="table table-bordered table-striped table-over">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Provincia</th>
+                            <th>Canton</th>
+                            <th>Distrito</th>
+                            <th>Estado</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.GridList)
+                        {
+                            <tr>
+                                <td>@item.AgenciaId</td>
+                                <td>@item.Nombre</td>
+                                <td>@item.Provincia.NombreCatalogoProvincia</td>
+                                <td>@item.Canton.NombreCatalogoCanton</td>
+                                <td>@item.Distrito.NombreCatalogoDistrito</td>
+                                <td>@(item.Estado ?"Activo" :"Inactivo")</td>
+                                <td>
+                                    <a class="btn btn-outline-primary" asp-page="Edit" asp-route-id="@item.AgenciaId">
+                                        <i class='bx bx-edit-alt'></i>
+                                    </a>
+                                    <button type="button" class="btn btn-outline-danger"
+                                            onclick="AgenciaGrid.OnClickEliminar(@item.AgenciaId)">
+                                        <i class='bx bx-trash'></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+
+    <script defer src="~/App/Agencia/Grid.js"></script>
+
+}

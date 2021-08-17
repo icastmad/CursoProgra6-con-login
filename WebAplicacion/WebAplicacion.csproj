@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\App\Grid.ts" />
+    <Content Remove="wwwroot\App\Login.ts" />
+    <Content Remove="wwwroot\App\MarcaVehiculo\Edit.ts" />
+    <Content Remove="wwwroot\App\Registrarse.ts" />
+    <Content Remove="wwwroot\App\Vehiculo\Edit.ts" />
+    <Content Remove="wwwroot\App\Vehiculo\Grid.ts" />
+    <Content Remove="wwwroot\Assets\Plugin\axios\AxiosConfig.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Entity\Entity.csproj" />
+    <ProjectReference Include="..\WBL\WBL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\App\Login.ts" />
+    <TypeScriptCompile Include="wwwroot\App\MarcaVehiculo\Edit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\MarcaVehiculo\Grid.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Registrarse.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Vehiculo\Edit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Vehiculo\Grid.ts" />
+    <TypeScriptCompile Include="wwwroot\Assets\Plugin\axios\AxiosConfig.ts" />
+  </ItemGroup>
+
+</Project>

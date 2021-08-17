@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>BaseDeDatos</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{50ca258c-9bb0-44ff-9a1b-8850f64ff7d1}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath />
+    <RootNamespace>BaseDeDatos</RootNamespace>
+    <AssemblyName>BaseDeDatos</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\StoreProcedures" />
+    <Folder Include="dbo\Tables" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\MarcaVehiculo.sql" />
+    <Build Include="dbo\Tables\Vehiculo.sql" />
+    <Build Include="dbo\StoreProcedures\MarcaVehiculoObtener.sql" />
+    <Build Include="dbo\StoreProcedures\MarcaVehiculoInsertar.sql" />
+    <Build Include="dbo\StoreProcedures\MarcaVehiculoActualizar.sql" />
+    <Build Include="dbo\StoreProcedures\MarcaVehiculoEliminar.sql" />
+    <Build Include="dbo\StoreProcedures\VehiculoActualizar.sql" />
+    <Build Include="dbo\StoreProcedures\VehiculoEliminar.sql" />
+    <Build Include="dbo\StoreProcedures\VehiculoInsertar.sql" />
+    <Build Include="dbo\StoreProcedures\VehiculoObtener.sql" />
+    <Build Include="dbo\StoreProcedures\MarcaVehiculoLista.sql" />
+    <Build Include="dbo\StoreProcedures\AgenciaActualizar.sql" />
+    <Build Include="dbo\StoreProcedures\AgenciaEliminar.sql" />
+    <Build Include="dbo\StoreProcedures\AgenciaInsertar.sql" />
+    <Build Include="dbo\StoreProcedures\AgenciaObtener.sql" />
+    <Build Include="dbo\StoreProcedures\CatalogoCantonLista.sql" />
+    <Build Include="dbo\StoreProcedures\CatalogoDistritoLista.sql" />
+    <Build Include="dbo\StoreProcedures\CatalogoProvinciaLista.sql" />
+    <Build Include="dbo\Tables\Agencias.sql" />
+    <Build Include="dbo\Tables\CatalogoCanton.sql" />
+    <Build Include="dbo\Tables\CatalogoDistrito.sql" />
+    <Build Include="dbo\Tables\CatalogoProvincia.sql" />
+    <Build Include="dbo\Tables\Usuarios.sql" />
+    <Build Include="dbo\StoreProcedures\UsuarioRegistrar.sql" />
+    <Build Include="dbo\StoreProcedures\ClientesActualizar.sql" />
+    <Build Include="dbo\StoreProcedures\ClientesEliminar.sql" />
+    <Build Include="dbo\StoreProcedures\ClientesInsertar.sql" />
+    <Build Include="dbo\StoreProcedures\ClientesObtener.sql" />
+    <Build Include="dbo\StoreProcedures\Login.sql" />
+    <Build Include="dbo\Tables\Clientes.sql" />
+    <Build Include="dbo\StoreProcedures\AgenciaLista.sql" />
+  </ItemGroup>
+</Project>

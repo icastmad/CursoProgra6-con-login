@@ -1,0 +1,78 @@
+﻿@page
+@model WebAplicacion.Pages.Agencia.EditModel
+@{
+}
+
+
+<div id="AppEdit" class="container" data-entity="@JsonSerializer.Serialize(Model.Entity)" v-cloak>
+    <div class="card">
+        <div class="card-header">
+            @(Model.id.HasValue ? "Actualizar":"Nuevo")
+        </div>
+        <div class="card-body">
+            <form id="FormEdit">
+
+
+                <input type="hidden" asp-for="Entity.AgenciaId" v-model="Entity.AgenciaId" />
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" asp-for="Entity.Nombre" v-model="Entity.Nombre" maxlength="250" required>
+                </div>
+
+
+                <div class="form-group mb-3">
+                    <label for="Entity.IdCatalogoProvincia" class="form-label">Provincia</label>
+
+                    <select asp-for="Entity.IdCatalogoProvincia" class="form-select" v-model="Entity.IdCatalogoProvincia"
+                            asp-items="@(new SelectList(Model.ProvinciaLista,"IdCatalogoProvincia","NombreCatalogoProvincia"))"
+                            v-on:change="OnChangeProvincia"
+                            required>
+                        <option value=""></option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.IdCatalogoProvincia" class="form-label">Canton</label>
+
+                    <select asp-for="Entity.IdCatalogoCanton" class="form-select" v-model="Entity.IdCatalogoCanton"
+                            v-on:change="OnChangeCanton"
+                            required>
+                        <option v-for="item in CantonLista" :value="item.IdCatalogoCanton"> {{item.NombreCatalogoCanton}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.IdCatalogoProvincia" class="form-label">Distrito</label>
+
+                    <select asp-for="Entity.IdCatalogoDistrito" v-model="Entity.IdCatalogoDistrito" class="form-select" required>
+                        <option v-for="item in DistritoLista" :value="item.IdCatalogoDistrito"> {{item.NombreCatalogoDistrito}}</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group form-check form-switch">
+                    <input class="form-check-input" type="checkbox" asp-for="Entity.Estado" v-model="Entity.Estado" value="true">
+                    <label class="form-check-label" for="Entity_Estado">Estado</label>
+                </div>
+                
+                <div class="row">
+                    <div class="col-4">
+                        <button type="button" @@click="Save" class="btn btn-outline-primary">
+                            @(Model.id.HasValue ? "Actualizar":"Agregar")
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+
+    <script defer src="~/App/Agencia/Edit.js"></script>
+}
+

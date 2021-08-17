@@ -1,0 +1,22 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "downlevelIteration": true,
+    "target": "es5",
+    "module": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": false,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "lib": [ "ES5", "ES6", "ES7", "ES2015", "ES2016", "ES2017", "esnext", "dom" ],
+    "typeRoots": [
+      "Assets/@types"
+    ]
+  }
+
+}

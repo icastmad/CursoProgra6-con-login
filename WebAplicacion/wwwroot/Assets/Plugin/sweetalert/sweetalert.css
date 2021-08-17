@@ -1,0 +1,17 @@
+﻿.swal2-icon-error {
+    background-color: #ff0033 !important;
+    color: white !important;
+}
+
+    .swal2-icon-error .swal2-title {
+        color: white !important;
+    }
+
+.swal2-icon-success {
+    background-color: #198754 !important;
+    color: white !important;
+}
+
+    .swal2-icon-success .swal2-title {
+        color: white !important;
+    }
